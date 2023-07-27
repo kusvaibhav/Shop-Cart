@@ -44,7 +44,7 @@ def signup(request):
 
         # email_message = EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[email])
         # email_message.send()
-        messages.success(request,"Activate Your Account by clicking the link in your gmail {message}")
+        messages.success(request,f"Activate Your Account by clicking the link in your gmail {message}")
         return redirect('/auth/login/') 
 
     return render(request,"signup.html")
@@ -136,7 +136,7 @@ class SetNewPasswordView(View):
 
         return render(request,'set-new-password.html',context)
 
-    def post(self,request,uidb64,token):
+    def post(self,request,uidb64,token): 
         context={
             'uidb64':uidb64,
             'token':token
